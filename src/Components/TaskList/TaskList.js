@@ -1,24 +1,21 @@
 import React, { useState } from 'react'
 import './TaskList.css'
 
-export default function TaskList() {
-    const defaulTaskList = [
-        { text: 'Accomplish something', finished: false, id: 1 },
-        { text: 'Create new feature', finished: true, id: 2 },
-        { text: 'Achieve the goal', finished: false, id: 3 },
-    ]
-    const [tasks, setTasks] = useState(defaulTaskList);
-    const handleClick = ({target}) => {
-
-    }
+export default function TaskList({tasks, handleFinish}) {
     return (
         <div>
             <ul>
                 {
                     tasks.map((el) =>
-                    (<li className={el.finished ? 'finished-task' : ''}>
-                        <label className='container' onClick={handleClick}>{el.text}
-                        <input type='checkbox' checked={el.finished} />
+                    (<li 
+                        // onClick={() => handleFinish(el.id)}
+                        key={el.id} 
+                        className={el.finished ? 'finished-task' : ''}>
+                        <label className='container'>{el.text}
+                        <input type='checkbox' 
+                            checked={el.finished} 
+                            onChange={() => handleFinish(el.id)}
+                            />
                         <span className='checkmark'></span>
                         </label>
                     </li>
