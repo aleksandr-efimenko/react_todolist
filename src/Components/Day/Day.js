@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import TaskInput from '../TaskInput/TaskInput'
 import TaskList from '../TaskList/TaskList'
+import './Day.css'
 
-export default function Day() {
+export default function Day({date}) {
   const defaulTaskList = [
-    { text: 'Accomplish something', finished: false, id: 1 },
-    { text: 'Create new feature', finished: true, id: 2 },
-    { text: 'Achieve the goal', finished: false, id: 3 },
+    { text: 'Accomplish something', finished: false, id: date.valueOf() + 1 },
+    { text: 'Create new feature', finished: true, id: date.valueOf() + 2 },
+    { text: 'Achieve the goal', finished: false, id: date.valueOf() + 3 },
   ]
   const [tasks, setTasks] = useState(defaulTaskList);
   const handleFinish = (taskId) => {
@@ -32,10 +33,8 @@ export default function Day() {
     setTasks([newTask, ...tasks]);
     setNewTask({});
   }
-  const [date, setDate] = useState(new Date());
-  // setDate(new Date());
   return (
-    <div><p>{date.toDateString()}</p>
+    <div className='day-card'><p>{date.toDateString()}</p>
       <TaskInput 
         onSubmitNewTask={onSubmitNewTask} 
         newTask={newTask}

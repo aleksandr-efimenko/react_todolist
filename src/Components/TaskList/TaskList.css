@@ -69,6 +69,7 @@
   ul {
     list-style: none;
     text-align: left;
+    height: 10vh;
   }
 
   .finished-task {

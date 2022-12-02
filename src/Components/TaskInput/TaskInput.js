@@ -7,7 +7,7 @@ export default function TaskInput({newTask, handleChangeNewTask, onSubmitNewTask
         <form onSubmit={onSubmitNewTask}>
         <input 
             minLength={1}
-            maxLength={70}
+            maxLength={100}
             onChange={handleChangeNewTask}
             type='text' 
             placeholder='Enter your task' 
