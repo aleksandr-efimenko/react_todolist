@@ -16,14 +16,31 @@ export default function Day() {
       }
       return obj;
     })      
-    console.log(newArr);
     setTasks(newArr);
+  }
+  const [newTask, setNewTask] = useState({});
+  const handleChangeNewTask = ({target}) => {
+    setNewTask({
+      text: target.value,
+      finished: false,
+      id: new Date().valueOf()
+    });
+  }
+  const onSubmitNewTask = (event) => {
+    event.preventDefault();
+    if (!newTask.text) return;
+    setTasks([newTask, ...tasks]);
+    setNewTask({});
   }
   const [date, setDate] = useState(new Date());
   // setDate(new Date());
   return (
     <div><p>{date.toDateString()}</p>
-      <TaskInput />
+      <TaskInput 
+        onSubmitNewTask={onSubmitNewTask} 
+        newTask={newTask}
+        handleChangeNewTask={handleChangeNewTask}
+      />
       <TaskList 
         tasks={tasks} 
         handleFinish={handleFinish} 
