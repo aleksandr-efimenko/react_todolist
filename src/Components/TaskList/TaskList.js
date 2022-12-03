@@ -3,8 +3,8 @@ import './TaskList.css'
 
 export default function TaskList({tasks, handleFinish}) {
     return (
-        <div>
-            <ul>
+        <div className='tasklist-container'>
+            <ul className='tasks'>
                 {
                     tasks.map((el) =>
                     (<li 
