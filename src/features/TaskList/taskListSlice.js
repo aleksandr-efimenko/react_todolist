@@ -7,7 +7,7 @@ export const TaskList = () => {
     const allTasks = useSelector()
 }
 
-export const taskListSlice = createSlice({
+const taskListSlice = createSlice({
     name: 'taskList',
     initialState: [],
     reducers: {
@@ -27,7 +27,7 @@ export const taskListSlice = createSlice({
 });
 
 export const { addTask, toggleTask } = taskListSlice.actions;
-
+export default taskListSlice.reducer;
 
 // const addTask = (task) => {
 //     return {
