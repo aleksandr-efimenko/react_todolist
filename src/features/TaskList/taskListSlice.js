@@ -7,26 +7,27 @@ export const TaskList = () => {
     const allTasks = useSelector()
 }
 
-const options = {
+export const taskListSlice = createSlice({
     name: 'taskList',
     initialState: [],
     reducers: {
         addTask: (state, action) => {
-            return [...state, 
-            {
+            state.push({
                 id: action.payload.id,
                 text: action.payload.text,
                 completed: false
-            }]
+            })
         },
         toggleTask: (state, action) => {
-            return state.map(task => 
-                task.id === action.payload.id ? {...task, completed: !task.completed} : task);
+            const index = state.findIndex(todo => todo.id === action.payload)
+            if (index !== -1) state[index].completed = !state[index.completed];
         }
 
     }
-}
-export const taskListSlice = createSlice(options);
+});
+
+export const { addTask, toggleTask } = taskListSlice.actions;
+
 
 // const addTask = (task) => {
 //     return {
