@@ -1,6 +1,6 @@
 import './App.css';
-import Calendar from './Components/Calendar/Calendar';
-import Nav from './Components/Nav/Nav';
+import Calendar from '../features/Calendar/Calendar';
+import Nav from '../features/Nav/Nav';
 
 function App() {
   return (
