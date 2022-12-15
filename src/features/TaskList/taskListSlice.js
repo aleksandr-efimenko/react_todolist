@@ -1,11 +1,4 @@
-import { Action } from "@remix-run/router";
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { createSlice } from "@reduxjs/toolkit";
-
-export const TaskList = () => {
-    const allTasks = useSelector()
-}
 
 const taskListSlice = createSlice({
     name: 'taskList',
